@@ -37,6 +37,7 @@ public class TaskService {
 		return obj;
 	}
 	
+	@Transactional
 	public Task update(Task obj) {
 		Task newObj = findById(obj.getId());
 		newObj.setDescription(obj.getDescription());
@@ -48,7 +49,7 @@ public class TaskService {
 		try {
 			this.taskRepository.deleteById(id);
 		}catch(Exception e){
-			throw new RuntimeException("Task not found")
+			throw new RuntimeException("Task not found");
 			
 		}
 	}

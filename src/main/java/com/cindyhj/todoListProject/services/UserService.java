@@ -20,7 +20,7 @@ public class UserService {
 	private UserRepository userRepository;
 	
 	
-	private User findById(Long id) {
+	public User findById(Long id) {
 		Optional<User> user = this.userRepository.findById(id);
 		return user.orElseThrow(() -> new RuntimeException(
 				"User Not found Id:" + id + " Tipo: " + User.class.getName()));
